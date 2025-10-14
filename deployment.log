@@ -1,0 +1,14 @@
+No files changed, compilation skipped
+Traces:
+  [5276224] → new DeployTestnet@0x9f7cF1d1F558E57ef88a59ac3D47214eF25B6A06
+    └─ ← [Return] 26239 bytes of code
+
+  [3880] DeployTestnet::run()
+    ├─ [0] VM::envExists("TESTNET_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::envExists("PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    └─ ← [Revert] No private key found. Set TESTNET_PRIVATE_KEY in .env
+
+
+Error: script failed: No private key found. Set TESTNET_PRIVATE_KEY in .env
