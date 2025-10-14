@@ -6,6 +6,9 @@ via_ir = true
 optimizer = true
 optimizer_runs = 200
 
+# Etherscan V2 API key (works across all supported chains)
+etherscan_api_key = "${ETHERSCAN_KEY}"
+
 [rpc_endpoints]
 anvil = "http://localhost:8545"
 optimism-sepolia = "https://rpc.inverter.network/main/evm/11155420"

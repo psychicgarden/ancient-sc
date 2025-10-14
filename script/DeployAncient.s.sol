@@ -34,8 +34,14 @@ contract AncientDeploy is Script {
         // Optional: Treasury address (defaults to deployer)
         address treasury;
         if (vm.envExists("TREASURY_ADDRESS")) {
-            treasury = vm.envAddress("TREASURY_ADDRESS");
-            require(treasury != address(0), "Invalid TREASURY_ADDRESS");
+            string memory treasuryStr = vm.envString("TREASURY_ADDRESS");
+            // Check if the string is not empty before trying to parse
+            if (bytes(treasuryStr).length > 0) {
+                treasury = vm.envAddress("TREASURY_ADDRESS");
+                require(treasury != address(0), "Invalid TREASURY_ADDRESS");
+            } else {
+                treasury = deployer;
+            }
         } else {
             treasury = deployer;
         }
