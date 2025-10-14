@@ -26,8 +26,8 @@ After deploying your contracts, update the addresses in `contracts.ts`:
 
 ```typescript
 export const CONTRACTS = {
-  mortgage: "0x...", // Your SimpleMortgage address
-  stakingPool: "0x...", // Your SimpleStakingPool address
+  mortgage: "0x...", // Your AncientMortgage address
+  stakingPool: "0x...", // Your AncientStakingPool address
   usdt: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", // USDbC on Base
   treasury: "0x...", // Your treasury address
 } as const;
@@ -56,15 +56,15 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ### For Users
 
 1. **Connect Wallet**: Click "Connect Wallet" to connect MetaMask or other wallet
-2. **Purchase Property**: 
+2. **Purchase Property**:
    - Enter property price (e.g., 150000 for $150k)
    - Click "Purchase Property"
    - Approve USDT spending if needed
    - Pay 20% down + 3% platform fee
-3. **Make Payments**: 
+3. **Make Payments**:
    - Enter your mortgage token ID
    - Click "Make Payment" monthly
-4. **Stake**: 
+4. **Stake**:
    - Enter amount to deposit (minimum 100 USDT)
    - Click "Deposit to Pool"
    - Earn interest from mortgage payments
@@ -80,7 +80,7 @@ The frontend uses wagmi hooks to interact with contracts:
 const { data: mortgageDetails } = useContractRead({
   address: mortgageAddress,
   abi: MORTGAGE_ABI,
-  functionName: 'getMortgage',
+  functionName: "getMortgage",
   args: [BigInt(tokenId)],
 });
 
@@ -88,7 +88,7 @@ const { data: mortgageDetails } = useContractRead({
 const { write: purchaseProperty } = useContractWrite({
   address: mortgageAddress,
   abi: MORTGAGE_ABI,
-  functionName: 'purchaseProperty',
+  functionName: "purchaseProperty",
 });
 ```
 
@@ -102,6 +102,7 @@ const { write: purchaseProperty } = useContractWrite({
 ## Network Support
 
 Currently configured for:
+
 - Base Mainnet
 - Base Sepolia (testnet)
 - Localhost (for testing)
@@ -125,11 +126,13 @@ export const NETWORKS = {
 ### Local Testing
 
 1. Start local blockchain:
+
    ```bash
    anvil
    ```
 
 2. Deploy contracts:
+
    ```bash
    forge script script/TestDeployLocal.s.sol:TestDeployLocal -vvv
    ```
@@ -144,6 +147,7 @@ export const NETWORKS = {
 ### Testnet Testing
 
 1. Deploy to testnet:
+
    ```bash
    make deploy
    # Select base-sepolia
@@ -185,13 +189,15 @@ npm start
 ### Debug Mode
 
 Add to your browser console:
+
 ```javascript
-localStorage.setItem('wagmi.debug', 'true');
+localStorage.setItem("wagmi.debug", "true");
 ```
 
 ### Network Issues
 
 Make sure you're on the correct network:
+
 - Base Mainnet: Chain ID 8453
 - Base Sepolia: Chain ID 84532
 

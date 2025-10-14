@@ -13,6 +13,7 @@ nano .env
 ```
 
 Required variables in `.env`:
+
 ```bash
 # Private keys (no 0x prefix)
 TESTNET_PRIVATE_KEY=your_testnet_key
@@ -35,6 +36,7 @@ make deploy
 ```
 
 The Makefile will prompt you to:
+
 1. **Select deployment script** → Choose `AncientLending`
 2. **Select RPC endpoint** → Choose from:
    - `anvil` (local)
@@ -52,10 +54,10 @@ After deployment, save the output:
 
 ```typescript
 export const CONTRACTS = {
-  mortgage: '0x...',
-  stakingPool: '0x...',
-  usdt: '0x...',
-  treasury: '0x...',
+  mortgage: "0x...",
+  stakingPool: "0x...",
+  usdt: "0x...",
+  treasury: "0x...",
 };
 ```
 
@@ -64,14 +66,17 @@ export const CONTRACTS = {
 ## Network-Specific USDT Addresses
 
 ### Base
+
 - **Base Mainnet**: `0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913` (USDbC)
 - **Base Sepolia**: Deploy mock USDT for testing
 
 ### Ethereum
+
 - **Mainnet**: `0xdAC17F958D2ee523a2206206994597C13D831ec7`
 - **Sepolia**: Deploy mock USDT for testing
 
 ### Optimism
+
 - **Mainnet**: `0x94b008aA00579c1307B0EF2c499aD98a8ce58e58`
 - **Sepolia**: Deploy mock USDT for testing
 
@@ -109,11 +114,11 @@ Configuration:
   Treasury: 0x...
   Network Chain ID: 84532
 
-Deploying SimpleMortgage...
-  SimpleMortgage deployed at: 0x...
+Deploying AncientMortgage...
+  AncientMortgage deployed at: 0x...
 
-Deploying SimpleStakingPool...
-  SimpleStakingPool deployed at: 0x...
+Deploying AncientStakingPool...
+  AncientStakingPool deployed at: 0x...
 
 Linking contracts...
   Mortgage -> StakingPool link established
@@ -122,12 +127,12 @@ Linking contracts...
 === DEPLOYMENT SUMMARY ===
 
 Contracts:
-  SimpleMortgage: 0x...
-  SimpleStakingPool: 0x...
+  AncientMortgage: 0x...
+  AncientStakingPool: 0x...
 
 Validating deployment...
 
-SimpleMortgage Validation:
+AncientMortgage Validation:
   [OK] USDT address correct
   [OK] Treasury address correct
   [OK] Staking pool linked
@@ -137,7 +142,7 @@ SimpleMortgage Validation:
   [OK] Term: 120 months
   [OK] Platform fee: 3%
 
-SimpleStakingPool Validation:
+AncientStakingPool Validation:
   [OK] USDT address correct
   [OK] Treasury address correct
   [OK] Owner is deployer
@@ -172,12 +177,13 @@ make deploy
 forge test -vvv
 
 # Test specific contract
-forge test --match-contract SimpleMortgageTest -vvv
+forge test --match-contract AncientMortgageTest -vvv
 ```
 
 ### 3. Manual Testing
 
 Test with small amounts:
+
 1. Deposit $100 USDT to staking pool
 2. Purchase $10k property
 3. Make first mortgage payment
@@ -201,12 +207,14 @@ Test with small amounts:
 ## Troubleshooting
 
 ### "USDT_ADDRESS not set"
+
 ```bash
 # Add to .env
 USDT_ADDRESS=0x...
 ```
 
 ### "No private key found"
+
 ```bash
 # Add to .env
 TESTNET_PRIVATE_KEY=your_key
@@ -214,6 +222,7 @@ MAINNET_PRIVATE_KEY=your_key
 ```
 
 ### Verification fails
+
 ```bash
 # Check ETHERSCAN_KEY is set
 ETHERSCAN_KEY=your_key
@@ -223,6 +232,7 @@ ETHERSCAN_KEY=your_key
 ```
 
 ### Wrong network
+
 ```bash
 # Check foundry.toml has correct RPC endpoints
 # Or add custom RPC:
@@ -235,11 +245,13 @@ my-network = "https://rpc.my-network.com"
 ## Security Recommendations
 
 ### For Testnet
+
 - Use separate testnet wallet
 - Don't use real funds
 - Test all functionality
 
 ### For Mainnet
+
 - Use hardware wallet or multisig
 - Set treasury to multisig address
 - Start with small transactions
@@ -252,19 +264,21 @@ my-network = "https://rpc.my-network.com"
 ## Contract Addresses (Save After Deployment)
 
 ### Base Sepolia (Testnet)
+
 ```
-SimpleMortgage: 
-SimpleStakingPool: 
-USDT: 
-Treasury: 
+AncientMortgage:
+AncientStakingPool:
+USDT:
+Treasury:
 ```
 
 ### Base Mainnet (Production)
+
 ```
-SimpleMortgage: 
-SimpleStakingPool: 
+AncientMortgage:
+AncientStakingPool:
 USDT: 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
-Treasury: 
+Treasury:
 ```
 
 ---
@@ -274,4 +288,3 @@ Treasury:
 - GitHub: [ancient-lending/contracts](https://github.com/ancient-lending/contracts)
 - Docs: [docs.ancient-lending.com](https://docs.ancient-lending.com)
 - Discord: [discord.gg/ancient-lending](https://discord.gg/ancient-lending)
-

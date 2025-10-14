@@ -3,8 +3,8 @@
 
 export const CONTRACTS = {
   // Deployed to Anvil (local testnet)
-  mortgage: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512", // SimpleMortgage address
-  stakingPool: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0", // SimpleStakingPool address
+  mortgage: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512", // AncientMortgage address
+  stakingPool: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0", // AncientStakingPool address
   usdt: "0x5FbDB2315678afecb367f032d93F642f64180aa3", // Mock USDT
   treasury: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", // Treasury address
 } as const;
@@ -30,7 +30,7 @@ export const NETWORKS = {
   },
 } as const;
 
-// SimpleMortgage ABI (key functions)
+// AncientMortgage ABI (key functions)
 export const MORTGAGE_ABI = [
   // View functions
   "function getMortgage(uint256 tokenId) external view returns (address borrower, uint256 propertyPrice, uint256 loanAmount, uint256 monthlyPayment, uint256 paymentsMade, uint256 paymentsRemaining, uint256 totalInterestPaid, bool isActive)",
@@ -59,7 +59,7 @@ export const MORTGAGE_ABI = [
   "event AppreciationDistributed(uint256 indexed tokenId, uint256 treasuryShare, uint256 stakerShare)",
 ] as const;
 
-// SimpleStakingPool ABI (key functions)
+// AncientStakingPool ABI (key functions)
 export const STAKING_POOL_ABI = [
   // View functions
   "function balanceOf(address account) external view returns (uint256)",

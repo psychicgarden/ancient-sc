@@ -91,11 +91,11 @@ The deployment script performs the following:
    - Checks all required addresses are set
    - Verifies deployer has sufficient gas
 
-2. **Deploys SimpleMortgage**
+2. **Deploys AncientMortgage**
    - Constructor args: `(usdt, treasury, trustedAppraiser)`
    - Sets up mortgage parameters (20% down, 8% APR, 120 months)
 
-3. **Deploys SimpleStakingPool**
+3. **Deploys AncientStakingPool**
    - Constructor args: `(usdt, treasury)`
    - Sets up staking pool with 2% management fee
 
@@ -117,14 +117,14 @@ The script outputs verification commands. Run them:
 ```bash
 forge verify-contract \
   <MORTGAGE_ADDRESS> \
-  src/SimpleMortgage.sol:SimpleMortgage \
+  src/AncientMortgage.sol:AncientMortgage \
   --constructor-args $(cast abi-encode "constructor(address,address,address)" $USDT_ADDRESS $TREASURY_ADDRESS $TRUSTED_APPRAISER) \
   --etherscan-api-key $ETHERSCAN_API_KEY \
   --chain-id $CHAIN_ID
 
 forge verify-contract \
   <STAKING_POOL_ADDRESS> \
-  src/SimpleStakingPool.sol:SimpleStakingPool \
+  src/AncientStakingPool.sol:AncientStakingPool \
   --constructor-args $(cast abi-encode "constructor(address,address)" $USDT_ADDRESS $TREASURY_ADDRESS) \
   --etherscan-api-key $ETHERSCAN_API_KEY \
   --chain-id $CHAIN_ID
@@ -136,8 +136,8 @@ Update your frontend with deployed addresses:
 
 ```typescript
 export const CONTRACTS = {
-  mortgage: "0x...", // SimpleMortgage address
-  stakingPool: "0x...", // SimpleStakingPool address
+  mortgage: "0x...", // AncientMortgage address
+  stakingPool: "0x...", // AncientStakingPool address
   usdt: "0x...", // USDT address
   treasury: "0x...", // Treasury address
 };
@@ -152,7 +152,7 @@ Run integration tests:
 forge test --fork-url $RPC_URL -vvv
 
 # Test specific contract
-forge test --match-contract SimpleMortgageTest -vvv
+forge test --match-contract AncientMortgageTest -vvv
 ```
 
 ### 4. Initial Test Transactions

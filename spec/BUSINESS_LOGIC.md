@@ -57,14 +57,14 @@ Ancient Lending provides decentralized mortgage financing for real estate purcha
 
 ## Smart Contract Architecture
 
-### SimpleMortgage.sol
+### AncientMortgage.sol
 - Handles property purchases
 - Manages monthly payments
 - Tracks mortgage lifecycle
 - Executes Year-10 appraisal and distribution
 - Issues property NFTs as collateral
 
-### SimpleStakingPool.sol
+### AncientStakingPool.sol
 - Accepts USDT deposits from lenders
 - Issues ERC20 shares representing pool ownership
 - Receives interest from mortgage payments

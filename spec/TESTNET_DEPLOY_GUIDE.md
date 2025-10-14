@@ -67,8 +67,8 @@ make deploy
 
 After deployment, you'll see:
 ```
-SimpleMortgage: 0x...
-SimpleStakingPool: 0x...
+AncientMortgage: 0x...
+AncientStakingPool: 0x...
 ```
 
 Save these addresses!
@@ -83,8 +83,8 @@ nano frontend/contracts.ts
 Update the addresses:
 ```typescript
 export const CONTRACTS = {
-  mortgage: "0x...", // Your SimpleMortgage address
-  stakingPool: "0x...", // Your SimpleStakingPool address
+  mortgage: "0x...", // Your AncientMortgage address
+  stakingPool: "0x...", // Your AncientStakingPool address
   usdt: "0x...", // Your Mock USDT address
   treasury: "0x...", // Your wallet address
 } as const;
